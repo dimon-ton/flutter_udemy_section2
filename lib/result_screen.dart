@@ -18,7 +18,8 @@ class ResultScreen extends StatelessWidget {
       summary.add({
         'question_index': i,
         'question': questions[i].text,
-        'correct_answer': questions[i].answers[0],
+        'correct_answer':
+            questions[i].answers[0], // assume that the first answer is correct
         'user_answer': chosenAnswers[i],
       });
     }
@@ -57,11 +58,13 @@ class ResultScreen extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            TextButton(
+            TextButton.icon(
+              style: TextButton.styleFrom(foregroundColor: Colors.white),
               onPressed: () {
                 restartQuiz();
               },
-              child: const Text('Restart Quiz'),
+              icon: const Icon(Icons.refresh),
+              label: const Text('Restart Quiz'),
             ),
           ],
         ),
